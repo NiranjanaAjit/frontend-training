@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+.create-employee{
+
+  margin-left: 300px;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  
+  * {
+    box-sizing: border-box;
+    background-color: #fafafa;
+    font-family: Nunito;
+  }
+  
+  :root {
+    --shadow: rgb(233, 230, 230);
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .kv-logo {
+    background-color: #fafafa;
+    max-width: 300px;
+    padding: 2% 15% 2% 15%;
+  }
+  
+  .empty-header {
+    min-width: 100rem;
+    background-color: #ffffff;
+  }
+  
+  aside {
+    position: fixed;
+    left: 0;
+    top: 61px;
+    padding-left: 2%;
+    width: 300px;
+    background-color: #ffffff;
+    height: 100vh;
+    box-shadow: 1px 10px 10px var(--shadow);
+  }
+  
+  aside nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin-top: 5%;
+  }
+  
+  .nav-content {
+    background-color: #03aeee;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 7%;
+    margin-top: 5%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .nav-content img {
+    padding: 4%;
+    border-radius: 20px;
+  }
+  
+  .nav-content a {
+    margin-left: 2%;
+    background-color: #03aeee;
+  }
+  
+
+
+  
+  section {
+    background-color: #ffffff;
+    margin: 1%;
+    /* margin-bottom: 0%; */
+    box-shadow: 1px 5px 10px 0px var(--shadow);
+    border-radius: 10px;
+  
+    form {
+      margin: 2%;
+      background-color: #ffffff;
+      border-radius: 10px;
+  
+      input {
+        background-color: #fafafa;
+        padding: 10px;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+  
+  h1 {
+    padding-left: 40px;
+    background-color: #ffffff;
+  }
+  
+  .employee-data-fields {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    /* padding: 20px; */
+  }
+  
+  select {
+    background-color: #fafafa;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .single-field {
+    width: 33.33%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  
+  .single-field label {
+    display: block;
+    background-color: #ffffff;
+  }
+  
+  .submit-buttons {
+    padding-left: 10px;
+    background-color: #ffffff;
+  
+    .create-button {
+      padding: 8px 40px 8px 40px;
+      background-color: #03aeee;
+      margin: 10px;
+      color: #ffffff;
+      border-radius: 10px;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 5px 1px #95d2e9;
+    }
+  
+    .cancel-button {
+      padding: 8px 40px 8px 40px;
+      background-color: #ffffff;
+      margin: 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 5px 1px #dfd8d8;
+    }
+  }
+  
+}
+
