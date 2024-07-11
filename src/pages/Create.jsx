@@ -2,7 +2,7 @@
 import TextField from "../components/TextField";
 import Button from "../components/Button";
 import SelectField from "../components/SelectField";
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../createEmployeeStyles.scss";
 const CreateEmployee = () => {
   const onChange = (name, value) => {
@@ -75,7 +75,10 @@ const CreateEmployee = () => {
   ];
 
   return (
-    <div className="create-employee">
+    <main>
+
+
+    {/* <div className="create-employee"> */}
       <section className="sections">
         <h1>Create Employee</h1>
       </section>
@@ -108,7 +111,8 @@ const CreateEmployee = () => {
           </div>
         </form>
       </section>
-    </div>
+    {/* </div> */}
+    </main>
   );
 };
 

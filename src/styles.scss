@@ -1,14 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
 .login-page {
   display: flex;
   height: 100vh;
   width: 100%;
   padding: 30px;
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
+
 
   .hero {
     background-color: #e6f7fd;
@@ -36,7 +38,7 @@
     border-radius: 50%;
     width: 500px;
     height: 500px;
-    border: 30px solid rgb(250, 248, 248);
+    border: 30px solid #e6f7fd;
   }
 
   .logo {
@@ -67,6 +69,9 @@
     background-color: #03aeee;
     color: white;
     border-color: #03aeee;
+  }
+  .wrapper-hero {
+    background-color: #e6f7fd;;
   }
 
   input {

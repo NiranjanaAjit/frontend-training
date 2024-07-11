@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
-.create-employee{
+// .create-employee{
 
-  margin-left: 300px;
-  margin-top: 90px;
+  main {margin-left: 150px;
+  margin-top: 45px;
   display: flex;
   flex-direction: column;
+  }
+
   
   * {
     box-sizing: border-box;
@@ -62,11 +64,21 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
+
   }
+
+  .link-styles{
+ 
+        text-decoration:none;
+   
+  }
+
   
   .nav-content img {
     padding: 4%;
     border-radius: 20px;
+    margin-right:5%
   }
   
   .nav-content a {
@@ -77,13 +89,26 @@
 
 
   
-  section {
+  .sections {
+    
     background-color: #ffffff;
     margin: 1%;
     /* margin-bottom: 0%; */
     box-shadow: 1px 5px 10px 0px var(--shadow);
     border-radius: 10px;
+    p{
+      background-color: #ffffff;
+    }
+
   
+    h1 {
+      margin: 2%;
+      // padding-left: 3%;
+      background-color: #ffffff;
+      // padding-top: 2% ;
+      // padding-bottom: 2% ;
+    }
+
     form {
       margin: 2%;
       background-color: #ffffff;
@@ -100,10 +125,7 @@
     }
   }
   
-  h1 {
-    padding-left: 40px;
-    background-color: #ffffff;
-  }
+
   
   .employee-data-fields {
     display: flex;
@@ -157,7 +179,82 @@
       border: 1px solid #ccc;
       box-shadow: 1px 1px 5px 1px #dfd8d8;
     }
-  }
   
+  }
+
+
+
+// }
+
+.employeeDetailsHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // width: ;
+  background-color: #eaf9fe;
+  margin: 1%;
+  box-shadow: 1px 5px 10px 0px var(--shadow);
+  height: 50px;
+  border-radius: 10px;
+  padding: 2%;
+
+  .employeeAttribute{
+    width: calc(100%/6);
+    background-color: #eaf9fe;
+    font-weight: bold;
+  }
 }
 
+.employeeDetailsContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // width: ;
+  background-color: #ffffff;
+  margin: 1%;
+  box-shadow: 1px 5px 10px 0px var(--shadow);
+  height: 50px;
+  border-radius: 10px;
+  padding: 2%;
+  
+
+  .employeeAttribute{
+    width: calc(100%/6);
+
+    background-color: #ffffff;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+  }
+}
+
+.actionDiv{
+  width: calc(100%/6);
+  background-color: #ffffff;
+
+  img {
+    width: 12.5%;
+    margin: 2%;
+  }
+}
+
+.statusDiv{
+  width:calc(100%/6);
+  padding: 1%;
+  background-color: #ffffff;
+
+
+
+  div{
+    padding: 3%;
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+
+  }
+
+}
