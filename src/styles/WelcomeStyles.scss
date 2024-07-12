@@ -1,0 +1,16 @@
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background-color: #ffffff;
+  margin: 1%;
+  padding: 3%;
+  box-shadow: 1px 5px 10px 0px var(--shadow);
+  border-radius: 10px;
+
+  h1 {
+    background-color: #ffffff;
+  }
+}

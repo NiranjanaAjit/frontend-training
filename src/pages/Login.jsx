@@ -3,7 +3,7 @@ import HeroImage from "../assets/kv-login.jpeg";
 import Logo from "../assets/kv-logo.png";
 import Button from "../components/Button";
 import TextField from "../components/TextField";
-import "../styles.scss";
+import "../styles/LoginStyles.scss";
 import { useState, useEffect, useRef } from "react";
 
 const Login = () => {
@@ -17,11 +17,11 @@ const Login = () => {
 
   useEffect(() => {
     if (creds.username.length > 10) {
-      setMessage("Max Length of username: 10 characters");
+      setMessage("Maximum length for username exceeded");
     } else {
       setMessage("");
     }
-    console.log("ahhhhhh")
+    console.log("ahhhhhh");
   }, [creds]);
 
   const onChange = (name, value) => {
@@ -33,26 +33,11 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    localStorage.setItem("token","true")
+    localStorage.setItem("token", "true");
     navigate("/employees");
   };
 
   const userNameRef = useRef();
-  // useEffect(()=>{
-  //   userNameRef.current.focus()
-  //   console.log(userName)
-  // })
-  // useEffect(() => {
-  //   console.log(userName);
-  //   console.log(userName)
-
-  //   if (userName.length > 10) {
-
-  //     setMessage("Max Length: 10 characters");
-  //   } else {
-  //     setMessage("");
-  //   }
-  // }, [userName]);
 
   return (
     <div className="login-page">
@@ -66,7 +51,6 @@ const Login = () => {
       <div className="login">
         <form action="/" method="post">
           <img src={Logo} alt="Logo" className="logo" />
-          <label style={{height:"20px"}}>{message}</label>
           <TextField
             label="Username"
             type="text"
@@ -74,13 +58,15 @@ const Login = () => {
             onChange={onChange}
             ref={userNameRef}
           />
+          <label className="message">{message}</label>
+
           <TextField
             label="Password"
             type="password"
             name="password"
             onChange={onChange}
           />
-          <Button text="Login" buttonClassName="" handleSubmit={handleSubmit} />
+          <Button text="Login" buttonClassName="login-button" handleSubmit={handleSubmit} />
         </form>
       </div>
     </div>

@@ -14,12 +14,12 @@ const Sidebar = () => {
             Home
           </div>
         </Link>
-        <Link className="link-styles" to="create">
+        {/* <Link className="link-styles" to="create">
           <div className="nav-content">
             <img src={Icon} alt="employee list icon" />
             Create Employee
           </div>
-        </Link>
+        </Link> */}
         <Link className="link-styles" to="list">
           <div className="nav-content">
             <img src={Icon} alt="employee list icon" />

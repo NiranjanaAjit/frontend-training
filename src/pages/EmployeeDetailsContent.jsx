@@ -1,12 +1,16 @@
 import Action from "./Action";
 import Status from "./Status";
+import { Link } from "react-router-dom";
 const EmployeeDetailsContent = (props) => {
   function handleClick(){
     console.log("clickeddd");
     console.log(props.content);
 }
+
+
   return (
-    <div className="employeeDetailsContent">
+    <Link to={`/employees/details/${props.content.id}`} className="link-styles">
+    <div className="employeeDetailsContent" >
       {/* {props.content.map((attribute)=>{
             return <div>attribute</div>
         })} */}
@@ -21,6 +25,7 @@ const EmployeeDetailsContent = (props) => {
       {/* <div className="employeeAttribute">{props.content.action}</div> */}
       <Action id={props.content.id} handleClick={handleClick}/>
     </div>
+    </Link>
   );
 };
 

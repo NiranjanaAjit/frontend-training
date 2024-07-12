@@ -1,4 +1,4 @@
-// import "../styles.module.scss";
+import "../styles/WelcomeStyles.scss";
 
 
 import FormComponent from "./FormComponent";
@@ -12,7 +12,7 @@ const CreateEmployee = () => {
 
 
     {/* <div className="create-employee"> */}
-      <section className="sections">
+      <section className="heading">
         <h1>Create Employee</h1>
       </section>
       <section className="sections">

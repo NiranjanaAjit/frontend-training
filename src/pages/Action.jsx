@@ -1,5 +1,5 @@
 import Trash from "../assets/delete.png";
-import Edit from "../assets/pencil.png";
+import Edit from "../assets/pencil-blue.svg";
 import { Link } from "react-router-dom";
 const Action = (props) => {
 

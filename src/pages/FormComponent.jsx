@@ -2,6 +2,7 @@ import { useState } from "react";
 import SelectField from "../components/SelectField";
 import TextField from "../components/TextField";
 import Button from "../components/Button";
+import { useParams } from "react-router-dom";
 
 const FormComponent = (params) => {
   let defaultValue = ""
@@ -85,7 +86,8 @@ const FormComponent = (params) => {
       [name]: value,
     }));
   };
-
+  let url =  useParams()
+  console.log(`url ${url}`)
   return (
     <form>
       <div className="employee-data-fields">

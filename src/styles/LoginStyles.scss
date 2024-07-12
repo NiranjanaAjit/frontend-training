@@ -5,6 +5,7 @@
   font-family: sans-serif;
 }
 
+
 .login-page {
   display: flex;
   height: 100vh;
@@ -30,8 +31,35 @@
   form {
     display: flex;
     flex-direction: column;
-    height: 35vh;
     justify-content: space-between;
+
+    
+
+    label {
+      margin-bottom: 7px;
+      padding-left: 5px;
+      margin-right: 10px;
+    }
+    .message{
+      // height:20px;
+      color: #ff0000;
+    }
+  
+    button {
+      padding: 15px 12px;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      border: none;
+      border-radius: 5px;
+      margin-top:10%;
+      margin-right: 15px;
+      border-style: solid;
+      border-width: 1px;
+      background-color: #03aeee;
+      color: white;
+      border-color: #03aeee;
+    }
   }
 
   .login-image {
@@ -43,6 +71,7 @@
 
   .logo {
     width: 200px;
+    margin-bottom: 10%;
   }
 
   span {
@@ -50,26 +79,7 @@
     flex-direction: column;
   }
 
-  label {
-    margin-bottom: 7px;
-    padding-left: 5px;
-    margin-right: 10px;
-  }
-
-  button {
-    padding: 15px 12px;
-    width: 100%;
-    text-align: center;
-    display: inline-block;
-    border: none;
-    border-radius: 5px;
-    margin-right: 15px;
-    border-style: solid;
-    border-width: 1px;
-    background-color: #03aeee;
-    color: white;
-    border-color: #03aeee;
-  }
+  
   .wrapper-hero {
     background-color: #e6f7fd;;
   }

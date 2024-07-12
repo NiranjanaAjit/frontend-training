@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
+import "../styles/WelcomeStyles.scss";
 
 const WelcomeEmployee = () => {
-return <main>
-                      <section className="sections">
+  return (
+    <main>
+      <section className="heading">
         <h1>WELCOME!</h1>
       </section>
-    {/* <Link to="create">Create Employee</Link> */}
-</main>
-
-
-}
+    </main>
+  );
+};
 
 export default WelcomeEmployee;
