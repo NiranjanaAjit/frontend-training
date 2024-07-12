@@ -1,11 +1,16 @@
 import Trash from "../assets/delete.png";
-import Edit from "../assets/pencil.png"
+import Edit from "../assets/pencil.png";
+import { Link } from "react-router-dom";
+const Action = (props) => {
 
-const Action = () => {
-    return <div className="actionDiv">
-        <img src={Trash} alt="trash icon"/>
-        <img src={Edit} alt="edit-icon"/>
+  return (
+    <div className="actionDiv">
+      <img src={Trash} alt="trash icon" />
+      <Link to={`/employees/edit/${props.id}`}>
+        <img src={Edit} alt="edit-icon" onClick={props.handleClick}/>
+      </Link>
     </div>
-}
+  );
+};
 
 export default Action;

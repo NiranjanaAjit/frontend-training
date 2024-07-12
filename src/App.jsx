@@ -7,6 +7,7 @@ import WelcomeEmployee from "./pages/Welcome";
 import HomeLayout from "./pages/HomeLayout";
 import ListEmployee from "./pages/ListEmployee";
 import { useState } from "react";
+import EditEmployee from "./pages/EditEmployee";
 
 // const handleSubmit = () => {
 //   console.log("hello")
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { index: true, element: <WelcomeEmployee /> },
       { path: "create", element: <CreateEmployee /> },
       { path: "list", element: <ListEmployee /> },
+      {path: "edit/:id", element: <EditEmployee/>},
     ],
   },
 ]);
@@ -38,3 +40,5 @@ const App = () => {
 };
 
 export default App;
+
+
