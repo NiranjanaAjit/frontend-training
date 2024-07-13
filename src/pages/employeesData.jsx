@@ -6,7 +6,7 @@ const employees = [
       role: "Developer",
       status: "Active",
       address: "Mananthavady",
-      experience: "2 years",
+      experience: "4 years",
       department: "Consulting",
       address:"California",
     },

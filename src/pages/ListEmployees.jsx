@@ -64,6 +64,7 @@ const ListEmployee = () => {
         count += 1;
         return <EmployeeDetailsContent key={count} content={employee} />;
       })}
+      <div className="blurredPage"></div>
 
       {/* </section> */}
     </main>

@@ -1,0 +1,19 @@
+.not-found{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+
+    .link-styles{
+        display: flex;
+        justify-content: right;
+        img{
+            background-color: #ffffff;
+            width: 10%
+
+        }
+    }
+}
