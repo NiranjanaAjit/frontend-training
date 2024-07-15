@@ -85,31 +85,6 @@ aside nav {
 
 
 
-.individualsDetails {
-  background-color: #ffffff;
-  margin: 1%;
-  box-shadow: 1px 5px 10px 0px var(--shadow);
-  border-radius: 10px;
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 2%;
-
-  div {
-    background-color: #ffffff;
-    width: calc(100% / 6);
-    // padding:2px
-    h4 {
-      color: #c2c4cc;
-      background-color: #ffffff;
-    }
-
-    div {
-      width: 100%;
-    }
-  }
-}
 
 .heading-label{
   align-content: center;
@@ -152,7 +127,7 @@ aside nav {
       height: 50px;
 
       font-size: 25px;
-      z-index: 1000;
+      z-index: 2;
       img {
         background-color: #03aeee;
         width: 30px;

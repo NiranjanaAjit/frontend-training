@@ -23,7 +23,7 @@ const EmployeeDetailsContent = (props) => {
       <Status status={props.content.status}/> 
       <div className="employeeAttribute">{props.content.experience}</div>
       {/* <div className="employeeAttribute">{props.content.action}</div> */}
-      <Action id={props.content.id} handleClick={handleClick}/>
+      <Action id={props.content.id} handleClick={handleClick} handleDelete={props.handleDelete}/>
     </div>
     </Link>
   );

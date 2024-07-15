@@ -1,5 +1,62 @@
-.blurredPage{
-  
+.backdrop{
+  background-color: rgba(156,156,156,0.5);
+  height: 100vh;
+  width: 100vw;
+  // width:1500px;
+  top:0;
+  left: 0;
+  // visibility: hidden;
+  z-index: 5 ;
+  position: fixed;
+  // opacity: 0.50;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .delete-confirmation{
+    background-color: #ffffff;
+    width: 300px;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    p{
+      text-align:right;
+      width: 100%;
+    }
+
+    .confirmation-buttons{
+      padding: 10px;
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+      .confirm-button{
+        background-color: #03aeee;
+        padding: 5px 20px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #706c6c;
+        border-width: 1px;
+      }
+
+      .cancel-button{
+        padding: 5px 20px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #706c6c;
+        border-width: 1px;
+
+      }
+
+    }
+  }
 }
 
 .heading {
@@ -17,6 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // width:50%;
 
     flex-wrap: nowrap;
     // height: 90px;
@@ -25,7 +83,7 @@
         margin-right:0%;
         background-color: #ffffff;
         height: 50px;
-        width: 100px;
+        width: 150px;
         align-content: center;
       } 
     .statusField {
@@ -41,41 +99,44 @@
           padding: 10px 30px 10px 30px;
         }
       }
-
-      .create-employee-button {
-        display: flex;
-        // flex-direction: row;
-        // background-color: #03aeee;
-        // width
-        align-items: center;
-        justify-content: center;
-        background-color: #ffffff;
-    
-        .plus-sign {
-          margin-left: 5%;
+      .link-styles{
+        width: 100%;
+        .create-employee-button {
           display: flex;
+          // flex-direction: row;
+          // background-color: #03aeee;
+          // width
           align-items: center;
           justify-content: center;
-          color: #ffffff;
-          border-radius: 50%;
-          background-color: #03aeee;
-          width: 50px;
-          height: 50px;
-          font-size: 25px;
-          z-index: 1000;
-        }
-    
-        h3 {
-          width: 200px;
-          height: 45px;
-          margin-left: -10%;
-          background-color: #eaf9fe;
-          color: #000000;
-          padding: 10px 10px 10px 30px;
-          // padding-left: 15px;
-          border-radius: 20px;
+          background-color: #ffffff;
+      
+          .plus-sign {
+            margin-left: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border-radius: 50%;
+            background-color: #03aeee;
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            z-index: 3;
+          }
+      
+          h3 {
+            width: 200px;
+            height: 45px;
+            margin-left: -10%;
+            background-color: #eaf9fe;
+            color: #000000;
+            padding: 10px 10px 10px 30px;
+            // padding-left: 15px;
+            border-radius: 20px;
+          }
         }
       }
+
 
   }
 }

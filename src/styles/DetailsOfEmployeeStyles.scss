@@ -9,24 +9,26 @@
     border-radius: 10px;
 
     .link-styles{
+      width:180px;
         .edit-employee-button {
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #ffffff;
+            width: 100%;
         
             .edit-sign {
-              margin-left: 5%;
+              // margin-left: 5%;
               display: flex;
               align-items: center;
               justify-content: center;
               color: #ffffff;
               border-radius: 50%;
               background-color: #03aeee;
-              width: 150px;
+              width: 120px;
             //   height: 75px;
               font-size: 25px;
-              z-index: 1000;
+              z-index: 3
               img{
                 width:25px;
               }
@@ -46,4 +48,46 @@
 
     }
     
+}
+
+.individualsDetails {
+  background-color: #ffffff;
+  margin: 1%;
+  box-shadow: 1px 5px 10px 0px var(--shadow);
+  border-radius: 10px;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2%;
+
+  .line-div{
+    width: 100%;
+    height: 1px;
+    background-color: #acacac;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .detail-div {
+    background-color: #ffffff;
+    width: calc(100% / 6);
+    // padding:2px
+    h4 {
+      color: #c2c4cc;
+      background-color: #ffffff;
+    }
+
+    .data-div {
+      width: 100%;
+      background-color: #ffffff;
+    }
+    .statusDiv{
+    
+        width:80%;
+        // border-width: 100px;
+      
+
+    }
+  }
 }

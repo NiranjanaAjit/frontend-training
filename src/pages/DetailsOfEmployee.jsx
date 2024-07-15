@@ -1,8 +1,8 @@
-import { useParams,  Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import employees from "./employeesData";
 import Status from "./Status";
-import WhitePencil from "../assets/pencil-white.svg"
-import "../styles/DetailsOfEmployeeStyles.scss"
+import WhitePencil from "../assets/pencil-white.svg";
+import "../styles/DetailsOfEmployeeStyles.scss";
 const DetailsOfEmployee = () => {
   const params = useParams();
   console.log(params.id);
@@ -19,7 +19,9 @@ const DetailsOfEmployee = () => {
         <h1>Employee Details</h1>
         <Link className="link-styles" to={`/employees/edit/${params.id}`}>
           <div className="edit-employee-button">
-            <div className="edit-sign"><img src={WhitePencil} alt="edit-icon"/></div>
+            <div className="edit-sign">
+              <img src={WhitePencil} alt="edit-icon" />
+            </div>
             <h3>Edit</h3>
           </div>
         </Link>
@@ -27,39 +29,39 @@ const DetailsOfEmployee = () => {
       {data.map((employee) => {
         return (
           <div className="individualsDetails">
-            <div>
+            <div className="detail-div">
               <h4>Employee Name</h4>
-              <div>{employee.name}</div>
+              <div className="data-div">{employee.name}</div>
             </div>
-            <div>
+            <div className="detail-div">
               <h4>Joining Date</h4>
-              <div>{employee.date}</div>
+              <div className="data-div">{employee.date}</div>
             </div>
-            <div>
+            <div className="detail-div">
               <h4>Department</h4>
-              <div>{employee.department}</div>
+              <div className="data-div">{employee.department}</div>
             </div>
-            <div>
-            <h4>Role</h4>
-              <div>{employee.role}</div>
+            <div className="detail-div">
+              <h4>Role</h4>
+              <div className="data-div">{employee.role}</div>
             </div>
-            <div>
+            <div className="detail-div">
               <h4>Status</h4>
               <Status status={employee.status} />
             </div>
-            <div>
+            <div className="detail-div">
               <h4>Experience</h4>
-              <div>{employee.experience}</div>
+              <div className="data-div">{employee.experience}</div>
             </div>
-            <div>
+            <div className="line-div"></div>
+            <div className="detail-div">
               <h4>Address</h4>
-              <div>{employee.address}</div>
+              <div className="data-div">{employee.address}</div>
             </div>
-            <div>
+            <div className="detail-div">
               <h4>Employee ID</h4>
-              <div>{employee.id}</div>
+              <div className="data-div">{employee.id}</div>
             </div>
-
           </div>
         );
       })}

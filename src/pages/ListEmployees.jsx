@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import employees from "./employeesData";
 import "../styles/ListEmployeesStyles.scss";
+import Button from "../components/Button";
+import DeleteComponent from "../components/deleteComponent";
 
 const ListEmployee = () => {
   //read employees fro file
@@ -20,23 +22,48 @@ const ListEmployee = () => {
   const [statusFilter, setStatusFilter] = useState("All");
   const [employeesDisplayed, setEmployeesDisplayed] = useState(employees);
   // console.log(employeesDisplayed)
+  useEffect(()=>{
+    console.log(employeesDisplayed)
+  },[employeesDisplayed])
   useEffect(() => {
     console.log("entered status filter useEffect");
-    setEmployeesDisplayed(() => {
-      employees.filter((employee) => {
-        employee.status == statusFilter;
-      });
-    });
-    console.log(employeesDisplayed);
+    console.log(statusFilter)
+    console.log(employees)
+    if (statusFilter === "Active" || statusFilter === "Inactive" || statusFilter === "Probation" ){
+      setEmployeesDisplayed(employees.filter((employee)=>
+        employee.status === statusFilter
+      ))
+    }
+    else{
+      setEmployeesDisplayed(employees)
+    }
+
+    // console.log(employeesDisplayed);
   }, [statusFilter]);
 
   function onChange(name, value) {
+    // console.log("entered onchange")
+    // console.log(name,value)
+    // console.log(statusFilter);
     setStatusFilter(value);
-    console.log(name, statusFilter);
+
+    // console.log(name, statusFilter);
+  }
+  function handleDelete(e) {
+    e.preventDefault();
+    console.log("clicked delete");
+    setBlur(true);
+    console.log(blur)
   }
 
+  const [blur,setBlur] = useState(false);
+  useEffect(()=>{
+
+  },[blur])
   return (
     <main>
+
+      { blur? <DeleteComponent handleExit={setBlur}/>:null}
       <section className="heading">
         <h1>Employee List</h1>
         <div>
@@ -50,7 +77,6 @@ const ListEmployee = () => {
           </Link>
         </div>
       </section>
-      {/* <section className="sections"> */}
       <div className="employeeDetailsHeader">
         <div className="employeeAttribute">Employee Name</div>
         <div className="employeeAttribute">Employee ID</div>
@@ -60,9 +86,15 @@ const ListEmployee = () => {
         <div className="employeeAttribute">Experience</div>
         <div className="employeeAttribute">Action</div>
       </div>
-      {employees.map((employee) => {
+      {employeesDisplayed.map((employee) => {
         count += 1;
-        return <EmployeeDetailsContent key={count} content={employee} />;
+        return (
+          <EmployeeDetailsContent
+            key={count}
+            content={employee}
+            handleDelete={handleDelete}
+          />
+        );
       })}
       <div className="blurredPage"></div>
 
