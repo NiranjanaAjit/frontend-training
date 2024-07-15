@@ -11,7 +11,7 @@ const NotFound = () => {
     }
 
     <br/>
-    <Link to="/" className="link-styles"><img src={homeIcon}/></Link>
+    <Link to="/employees" className="link-styles"><img src={homeIcon}/></Link>
     </div>
 }
 
