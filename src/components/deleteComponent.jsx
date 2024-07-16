@@ -15,7 +15,7 @@ const DeleteComponent = (props) => {
           <Button
             text="Confirm"
             buttonClassName="confirm-button"
-            handleSubmit={handleClose}
+            handleSubmit={props.handleDelete}
           />
           <Button
             text="Cancel"

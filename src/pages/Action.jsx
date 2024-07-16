@@ -6,9 +6,10 @@ const Action = (props) => {
   return (
     <div className="actionDiv">
 
-      <img src={Trash} alt="trash icon" onClick={props.handleDelete} />
+      <img src={Trash} alt="trash icon" onClick={(e) => props.handleDelete(e, props.id)} />
+      
       <Link to={`/employees/edit/${props.id}`}>
-        <img src={Edit} alt="edit-icon" onClick={props.handleClick}/>
+        <img src={Edit} alt="edit-icon"/>
       </Link>
 
     </div>

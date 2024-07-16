@@ -2,9 +2,11 @@ import Action from "./Action";
 import Status from "./Status";
 import { Link } from "react-router-dom";
 const EmployeeDetailsContent = (props) => {
-  function handleClick(){
+  
+  function handleEdit(){
     console.log("clickeddd");
-    console.log(props.content);
+    // console.log(props.content);
+  
 }
 
 
@@ -23,7 +25,7 @@ const EmployeeDetailsContent = (props) => {
       <Status status={props.content.status}/> 
       <div className="employeeAttribute">{props.content.experience}</div>
       {/* <div className="employeeAttribute">{props.content.action}</div> */}
-      <Action id={props.content.id} handleClick={handleClick} handleDelete={props.handleDelete}/>
+      <Action id={props.content.id}  handleDelete={props.handleDelete}/>
     </div>
     </Link>
   );

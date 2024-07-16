@@ -147,4 +147,18 @@
   img{
     background-color: #ffffff ;
   }
+
+  .link-styles{
+    img{
+      background-color: #ffffff;
+    }
+  }
+}
+.employeeDetailsContent{
+  .employeeAttribute{
+    padding-right: 2%;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+  }
 }

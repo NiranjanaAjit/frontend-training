@@ -1,11 +1,14 @@
 import { Outlet, useNavigate } from "react-router-dom";
-
+import reducer from "./useReducer";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { useEffect } from "react";
-
+import { useReducer } from "react";
+import employees from "./employeesData";
 
 const HomeLayout = () => {
+    const [state,dispatch] = useReducer(reducer,{employees:employees});
+
     const navigate = useNavigate()
 
     const token = localStorage.getItem("token") 
@@ -22,7 +25,7 @@ const HomeLayout = () => {
     <Header/>
     <Sidebar/>
     <main>
-    <Outlet/>
+    <Outlet context={{state,dispatch}}/>
     </main>
     </div>
 

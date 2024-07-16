@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SelectField from "../components/SelectField";
 import TextField from "../components/TextField";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { actionTypes } from "./useReducer.jsx";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { actionTypes } from "./useReducer.jsx";
 
-const FormComponent = (params) => {
-  let defaultValue = ""
-  if(params.employeeId){
-  defaultValue =  params.employeeId
+const FormComponent = (props) => {
+  // const params = useParams();
+  // console.log("params")
+  // console.log(params.lengt)
+  const {state,dispatch} = useOutletContext();
+
+  let defaultValue = "";
+  if (props.employeeId) {
+    defaultValue = props.employeeId;
   }
+
   const [data, setData] = useState({
     name: "",
-    id: "",
+    id: defaultValue,
     date: "",
     role: "",
     status: "",
@@ -75,6 +86,9 @@ const FormComponent = (params) => {
       type: "text",
     },
   ];
+  useEffect(()=>{
+    console.log("hello")
+  },[])
 
   const onChange = (name, value) => {
     console.log(data);
@@ -86,8 +100,39 @@ const FormComponent = (params) => {
       [name]: value,
     }));
   };
-  let url =  useParams()
-  console.log(`url ${url}`)
+  
+  let url = useParams();
+  console.log(`url ${url}`);
+  const goToList= ()=>{
+    console.log(":)")
+  }
+  const handleCreate = (e) => {
+    e.preventDefault();
+    console.log("hi");
+    if (defaultValue) {
+      dispatch({
+        type:actionTypes.EDIT_EMPLOYEE,
+        payload: {...data}
+      })
+
+      // console.log(state )
+    }
+    else{
+      dispatch({
+        type: actionTypes.ADD_EMPLOYEE,
+        payload: { ...data, id: uuidv4() },
+      });
+    }
+
+    goToList();
+  };
+  const createOrEdit =(e) =>{
+    // e.preventDefault();
+    console.log("Data from formvompo")
+    console.log(data)
+    props.handleCreateOrEdit(data)
+  }
+
   return (
     <form>
       <div className="employee-data-fields">
@@ -111,10 +156,14 @@ const FormComponent = (params) => {
           );
         })}
       </div>
-      <div className="submit-buttons">
-        <Button text="Create" buttonClassName="create-button" />
-        <Button text="Cancel" buttonClassName="cancel-button" />
-      </div>
+      <Link className="submit-buttons" to="/employees/list"> 
+        <Button
+          text="Create"
+          buttonClassName="create-button"
+          handleSubmit={createOrEdit}
+        />
+        <Button text="Cancel" buttonClassName="cancel-button" handleSubmit={goToList} />
+      </Link>
     </form>
   );
 };
