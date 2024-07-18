@@ -1,17 +1,29 @@
+import "../styles/ListEmployeesStyles.scss";
+
 import SelectField from "../components/SelectField";
 import EmployeeDetailsContent from "./EmployeeDetailsContent";
-import { Link, useOutlet, useOutletContext, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import employees from "./employeesData";
-import "../styles/ListEmployeesStyles.scss";
-import Button from "../components/Button";
-import DeleteComponent from "../components/deleteComponent";
-import { actionTypes } from "./useReducer.jsx";
-import { useContext } from "react";
+import DeleteComponent from "../components/DeleteComponent.jsx";
+// import { useDispatch } from "react-redux";
+// import { deleteEmployee } from "../store/employeeReducer.js";
+import { useDeleteEmployeeMutation, useGetEmployeeListQuery } from "./employees/api.js";
 
 const ListEmployee = () => {
-  //read employees fro file
-  const {state,dispatch} = useOutletContext();
+  const [hello,{isSuccess}] = useDeleteEmployeeMutation();
+  const [employees, setEmployees] = useState([]);
+  const { data = [] } = useGetEmployeeListQuery();
+  useEffect(() => {
+    const list = data.map((employee) => ({
+      ...employee,
+      date: new Date(employee.createdAt).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }),
+    }));
+    setEmployees(list);
+  }, [data]);
   let count = 0;
   const field = {
     name: "statusField",
@@ -22,59 +34,52 @@ const ListEmployee = () => {
     Component: SelectField,
   };
   const [statusFilter, setStatusFilter] = useState("All");
-  const [employeesDisplayed, setEmployeesDisplayed] = useState(state.employees);
-  // console.log(employeesDisplayed)
-  useEffect(()=>{
-    console.log(employeesDisplayed)
-  },[employeesDisplayed])
+  const [employeesDisplayed, setEmployeesDisplayed] = useState(employees);
+  // useEffect(() => {
+  // }, [employeesDisplayed]);
   useEffect(() => {
-    // console.log("entered status filter useEffect");
-    // console.log(statusFilter)
-    console.log("state from listemp")
-    console.log(state)  
-    if (statusFilter === "Active" || statusFilter === "Inactive" || statusFilter === "Probation" ){
-      setEmployeesDisplayed(state.employees.filter((employee)=>
-        employee.status === statusFilter
-      ))
+    if (
+      statusFilter === "Active" ||
+      statusFilter === "Inactive" ||
+      statusFilter === "Probation"
+    ) {
+      setEmployeesDisplayed(
+        employees.filter((employee) => employee.status === statusFilter)
+      );
+    } else {
+      setEmployeesDisplayed(employees);
     }
-    else{
-      setEmployeesDisplayed(state.employees)
-    }
-
-    // console.log(employeesDisplayed);
-  }, [statusFilter,state.employees]);
+  }, [statusFilter, employees]);
 
   function onChange(name, value) {
-    // console.log("entered onchange")
-    // console.log(name,value)
-    // console.log(statusFilter);
     setStatusFilter(value);
   }
-  const [deleteId,setDeleteId] = useState("")
-    const handleDelete = () =>{
-      console.log(deleteId)
-      dispatch({
-        type:actionTypes.DELETE_EMPLOYEE,
-        payload: deleteId
-      })
-      setBlur(false)
-      setDeleteId("")
+  const [deleteId, setDeleteId] = useState("");
+  const handleDelete = () => {
+    console.log(deleteId);
+    console.log("before deletion");
+    hello(deleteId)
+    if(isSuccess){
+      console.log(isSuccess, hello )
     }
+    setBlur(false);
+    setDeleteId("");
+  };
 
   function handleDeleteButton(e, id) {
     e.preventDefault();
-    setDeleteId(id)
+    setDeleteId(id);
     setBlur(true);
   }
 
-  const [blur,setBlur] = useState(false);
-
+  const [blur, setBlur] = useState(false);
   return (
     <main>
-
-      { blur? <DeleteComponent handleExit={setBlur} handleDelete={handleDelete}/>:null}
+      {blur ? (
+        <DeleteComponent handleExit={setBlur} handleDelete={handleDelete} />
+      ) : null}
       <section className="heading">
-        <h1>Employee List</h1>  
+        <h1>Employee List</h1>
         <div>
           <h4>Filter By</h4>
           <SelectField {...field} onChange={onChange} />
@@ -102,13 +107,10 @@ const ListEmployee = () => {
             key={count}
             content={employee}
             handleDelete={handleDeleteButton}
-            // handleEdit={handleEditButton}
           />
         );
       })}
       <div className="blurredPage"></div>
-
-      {/* </section> */}
     </main>
   );
 };

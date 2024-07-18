@@ -10,12 +10,10 @@ import { useReducer, useState } from "react";
 import EditEmployee from "./pages/EditEmployee";
 import DetailsOfEmployee from "./pages/DetailsOfEmployee"
 import employees from "./pages/employeesData";
-import reducer from "./pages/useReducer.jsx";
-
-// const handleSubmit = () => {
-//   console.log("hello")
-// }
-
+import store from "./store/store.js"
+import { Provider } from "react-redux";
+import reducer from "./store/useReducer.jsx";
+import { ToastContainer } from "react-toastify";
 
 
 const App = () => {
@@ -39,10 +37,12 @@ const App = () => {
     },
   ]);
   return (
+    <Provider store={store}>
     <div className="App">
+    <ToastContainer />
       <RouterProvider router={router} />
     </div>
-  );
+    </Provider>  );
 };
 
 export default App;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text Field Test Check if snapshots are mapped properly 1`] = `
+<DocumentFragment>
+  <span>
+    <label
+      data-testid="textfield-label-test-id"
+      for="uname"
+    >
+      bye
+    </label>
+    <input
+      data-testid="textfield-input-test-id"
+      id="uname"
+      placeholder="bye"
+      value="test-snapshot"
+    />
+  </span>
+</DocumentFragment>
+`;

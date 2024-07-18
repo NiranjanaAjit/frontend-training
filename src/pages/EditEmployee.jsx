@@ -1,28 +1,26 @@
-import FormComponent from "./FormComponent";
+import FormComponent from "../components/FormComponent";
 import { useOutletContext, useParams } from "react-router-dom";
-import { actionTypes } from "./useReducer.jsx";
+import { useEditEmployeeMutation } from "./employees/api.js";
+import { useEffect } from "react";
 
 const EditEmployee = () => {
-  const {state,dispatch} = useOutletContext();
-  let { id } = useParams();
-  console.log(id);
+  const { id } = useParams();
+  const [editEmployee, { isSuccess, isError, error }] =
+    useEditEmployeeMutation();
   const handleEdit = (data) => {
-    // e.preventDefault();
-    console.log(data)
-    dispatch({
-      type:actionTypes.EDIT_EMPLOYEE,
-      payload: data
-    })
-    console.log("entered edit")
-  }
+    const dbData = {
+      ...data,
+      id: id,
+    };
+    editEmployee(dbData);
+  };
   return (
     <main>
-      {/* <div className="create-employee"> */}
       <section className="heading">
         <h1>{`Edit Employee Details of ${id}`}</h1>
       </section>
       <section className="sections">
-        <FormComponent employeeId={id} handleCreateOrEdit={handleEdit}/>
+        <FormComponent employeeId={id} handleCreateOrEdit={handleEdit} />
       </section>
       {/* </div> */}
     </main>

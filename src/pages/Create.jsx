@@ -1,34 +1,27 @@
 import "../styles/WelcomeStyles.scss";
-import { actionTypes } from "./useReducer.jsx";
 import { v4 as uuidv4 } from "uuid";
-import FormComponent from "./FormComponent";
-import { useEffect, useState } from "react";
+import FormComponent from "../components/FormComponent";
 import "../createEmployeeStyles.scss";
-import { useOutletContext } from "react-router-dom";
+// import { addEmployee } from "../store/employeeReducer";
+import { useDispatch } from "react-redux";
+import { useAddEmployeeMutation } from "./employees/api";
+
 const CreateEmployee = () => {
-const {state,dispatch} = useOutletContext();
-console.log(state.employees,dispatch)
-  const handleCreate=(data)=>{  
-    console.group(data)
-    console.log("inside hande create in create.jsx")
-    dispatch({
-      type:actionTypes.ADD_EMPLOYEE,
-      payload: {...data, id: uuidv4()}
-    })
-  }
+  const [addEmployee, { isSuccess}] = useAddEmployeeMutation();
+  // const dispatch = useDispatch();
+  const handleCreate = (data) => {
+    console.log(data)
+    addEmployee(data)
+
+  };
   return (
     <main>
-
-
-    {/* <div className="create-employee"> */}
       <section className="heading">
         <h1>Create Employee</h1>
       </section>
       <section className="sections">
-
-        <FormComponent state={state} dispatch={dispatch} handleCreateOrEdit={handleCreate}/>
+        <FormComponent handleCreateOrEdit={handleCreate} />
       </section>
-    {/* </div> */}
     </main>
   );
 };

@@ -1,5 +1,8 @@
 const SelectField = (props) => {
-
+  let filledValue = "0"
+  if (props.value){
+    filledValue = props.value;
+  }
   const onChange= (e)=> {
     if(props.onChange)props.onChange(e.target.name, e.target.value)
   }
@@ -13,7 +16,7 @@ let text=""
   return (
     <div className={props.divClassName}>
       <label>{props.label}</label>
-      <select name={props.name} id={props.id} required defaultValue="0" onChange={onChange} >
+      <select name={props.name} id={props.id} required defaultValue={filledValue} onChange={onChange} >
         <option value="0">{text}</option>
         {props.options.map((optionValue) => {
           return (

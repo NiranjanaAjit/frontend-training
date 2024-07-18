@@ -5,23 +5,26 @@ import Button from "../components/Button";
 import TextField from "../components/TextField";
 import "../styles/LoginStyles.scss";
 import { useState, useEffect, useRef } from "react";
+import { useLoginMutation } from "./login/api";
+import alert from "../components/toastify-component";
 
 const Login = () => {
   // const [userName, setUserName] = useState("");
 
   const [message, setMessage] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
+  const [login, { isSuccess, data, error }] = useLoginMutation();
 
   const navigate = useNavigate();
 
   const [creds, setCreds] = useState({ username: "", password: "" });
 
   useEffect(() => {
-    if (creds.username.length > 10) {
+    if (creds.username.length > 100) {
       setMessage("Maximum length for username exceeded");
     } else {
       setMessage("");
     }
-    console.log("ahhhhhh");
   }, [creds]);
 
   const onChange = (name, value) => {
@@ -32,9 +35,29 @@ const Login = () => {
     console.log(creds);
   };
 
-  const handleSubmit = () => {
-    localStorage.setItem("token", "true");
-    navigate("/employees");
+  useEffect(() => {
+    console.log("isSucces and data");
+    if (isSuccess && data?.data?.token) {
+      console.log(isSuccess, data.data.token);
+      localStorage.setItem("token", data.data.token);
+      console.log("kittiuo");
+      navigate("/employees");
+    }
+  }, [isSuccess, data]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (creds.username == "") {
+      alert("Please enter username !");
+    } else if (creds.password == "") {
+      alert("Please enter password !")
+    }
+    else {
+      login({
+        email: creds.username,
+        password: creds.password,
+      });
+    }
   };
 
   const userNameRef = useRef();
@@ -49,7 +72,7 @@ const Login = () => {
       </div>
       {/* <!-- Login Section --> */}
       <div className="login">
-        <form action="/" method="post">
+        <form method="post">
           <img src={Logo} alt="Logo" className="logo" />
           <TextField
             label="Username"
@@ -59,14 +82,18 @@ const Login = () => {
             ref={userNameRef}
           />
           <label className="message">{message}</label>
-
           <TextField
             label="Password"
             type="password"
             name="password"
             onChange={onChange}
           />
-          <Button text="Login" buttonClassName="login-button" handleSubmit={handleSubmit} />
+          <Button
+            text="Login"
+            buttonClassName="login-button"
+            handleSubmit={handleSubmit}
+          />
+          <label className="message">{loginStatus}</label>
         </form>
       </div>
     </div>
